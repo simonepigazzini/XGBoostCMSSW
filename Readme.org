@@ -4,12 +4,19 @@
 
 ** Setup the package
    =cmsrel X_Y_Z=
+
    =cd X_Y_Z/src=
+
    =cmsenv=
+
    =git cms-init=
+
    =git clone https://github.com/simonepigazzini/XGBoostCMSSW.git=
+
    =cp XGBoostCMSSW/XGBoostInterface/toolbox/*xml $CMSSW_BASE/config/toolbox/$SCRAM_ARCH/tools/selected/=
+
    =scram setup rabit xgboost=
+
    =scram b -j=
 
    The last two steps should print out a confirmation that the relevant libraries have been succesfully loaded as CMSSW external tools.
