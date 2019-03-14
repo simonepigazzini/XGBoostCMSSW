@@ -1,0 +1,26 @@
+* XGBoostCMSSW
+  This package provides an interface to XGBoost through the its c_api. To install the package follow the standard CMSSW guidelines and
+  the additional steps below.
+
+** Setup the package
+   =cmsrel X_Y_Z=
+   =cd X_Y_Z/src=
+   =cmsenv=
+   =git cms-init=
+   =git clone https://github.com/simonepigazzini/XGBoostCMSSW.git=
+   =cp XGBoostCMSSW/XGBoostInterface/toolbox/*xml $CMSSW_BASE/config/toolbox/$SCRAM_ARCH/tools/selected/=
+   =scram setup rabit xgboost=
+   =scram b -j=
+
+   The last two steps should print out a confirmation that the relevant libraries have been succesfully loaded as CMSSW external tools.
+
+** Use the package
+   The package is now setup to be used as any other CMSSW package, see plugins/XGBoostExample.cpp for more details.
+
+** Run within cmsRun job 
+   The libxgboost.so file is too large to be handle by dlopen (running a cmsRun job using this package will ends up in an error message).
+   You should set the =LD_PRELOAD= with the command provided below before executing the cmsRun command:
+   - BASH:
+     =export LD_PRELOAD=$CMSSW_BASE/external/$SCRAM_ARCH/lib/libxgboost.so=
+   - FISH:
+     =set -x LD_PRELOAD $CMSSW_BASE/external/$SCRAM_ARCH/lib/libxgboost.so=
