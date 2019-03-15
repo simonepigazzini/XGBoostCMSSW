@@ -22,7 +22,8 @@
    The last two steps should print out a confirmation that the relevant libraries have been succesfully loaded as CMSSW external tools.
 
 ** Use the package
-   The package is now setup to be used as any other CMSSW package, see plugins/XGBoostExample.cpp for more details.
+   The package is now setup to be used as any other CMSSW package, see https://github.com/simonepigazzini/PrecisionTiming/blob/TDR/FTLAnalysis/src/TrackPUIDMVA.cc
+   for an example (MVAComputer is a similar class for TMVA, the usage is identical to XGBComputer).
 
 ** Run within cmsRun job 
    The libxgboost.so file is too large to be handle by dlopen (running a cmsRun job using this package will ends up in an error message).
