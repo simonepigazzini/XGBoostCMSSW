@@ -21,7 +21,7 @@ public:
         };
 
     //---getters---
-    float operator() ();
+    std::vector<float> operator() ();
     
 private:
     mva_variables* vars_;

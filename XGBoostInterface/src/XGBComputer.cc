@@ -9,7 +9,7 @@ XGBComputer::XGBComputer(mva_variables* vars, std::string model_file)
     XGBoosterLoadModel(booster_, model_file.c_str());
 };
 
-float XGBComputer::operator() ()
+std::vector<float> XGBComputer::operator() ()
 {    
     float values[1][vars_->size()];
 
@@ -30,7 +30,12 @@ float XGBComputer::operator() ()
 
     XGDMatrixFree(dvalues);
 
-    //---What if out_len is > 1??
-    return ret==0 && out_len>0 ? score[0] : -1;
+    std::vector<float> results;
+    if(ret==0)
+    {
+        for(unsigned int ic=0; ic<out_len; ++ic)
+            results.push_back(score[ic]);
+    }
     
+    return results;    
 }
