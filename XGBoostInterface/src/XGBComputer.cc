@@ -3,7 +3,6 @@
 XGBComputer::XGBComputer(mva_variables* vars, std::string model_file)
 {
     vars_ = vars;
-    
     //---load the model
     XGBoosterCreate(NULL, 0, &booster_);
     XGBoosterLoadModel(booster_, model_file.c_str());

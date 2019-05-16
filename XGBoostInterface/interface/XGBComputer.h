@@ -19,10 +19,13 @@ public:
     ~XGBComputer()
         {
         };
+    
+    //---setters---
+    void SetVariables(mva_variables* vars) { vars_ = vars; };
 
     //---getters---
     std::vector<float> operator() ();
-    
+
 private:
     mva_variables* vars_;
     BoosterHandle  booster_;
