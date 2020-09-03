@@ -15,7 +15,9 @@
 
    =cp XGBoostCMSSW/XGBoostInterface/toolbox/*xml $CMSSW_BASE/config/toolbox/$SCRAM_ARCH/tools/selected/=
 
-   =scram setup rabit xgboost=
+   =scram setup rabit=
+   
+   =scram setup xgboost=
 
    =scram b -j=
 
